@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oleksandr Kuskov – Portfolio</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #fff;
+      color: #111;
+      text-align: center;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+    nav button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    .slider img, .slider iframe {
+      max-width: 800px;
+      width: 100%;
+      margin: auto;
+      display: none;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .slider img.active, .slider iframe.active {
+      display: block;
+    }
+    .controls button {
+      margin: 0 0.5rem;
+      padding: 0.4rem 1rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .info {
+      max-width: 600px;
+      margin: auto;
+    }
+    .contacts a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #111;
+    }
+    .lang-de {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <button onclick="switchLang('en')">EN</button>
+    <button onclick="switchLang('de')">DE</button>
+  </nav>
+
+  <section class="info">
+    <h1 class="lang-en">Oleksandr Kuskov – Icarian Games Performer</h1>
+    <h1 class="lang-de">Oleksandr Kuskov – Ikarier-Akrobat</h1>
+
+    <p class="lang-en">I specialize in high-level Icarian Games acts with years of international experience. My work combines precision, strength, and elegance.</p>
+    <p class="lang-de">Ich spezialisiere mich auf Ikarier-Akrobatik mit internationaler Erfahrung. Meine Arbeit verbindet Präzision, Kraft und Eleganz.</p>
+  </section>
+
+  <section onclick="document.getElementById('photo-gallery').scrollIntoView({behavior:'smooth'})">
+    <h2 class="lang-en">Photos</h2>
+    <h2 class="lang-de">Fotos</h2>
+    <div class="slider" id="photo-slider">
+      <img src="images/photo1.jpg" class="active" alt="Photo 1">
+      <img src="images/photo2.jpg" alt="Photo 2">
+      <img src="images/photo3.jpg" alt="Photo 3">
+      <img src="images/photo4.jpg" alt="Photo 4">
+      <img src="images/photo5.jpg" alt="Photo 5">
+    </div>
+    <div class="controls">
+      <button onclick="changePhoto(-1)">←</button>
+      <button onclick="changePhoto(1)">→</button>
+    </div>
+  </section>
+
+  <section onclick="document.getElementById('video-gallery').scrollIntoView({behavior:'smooth'})">
+    <h2 class="lang-en">Videos</h2>
+    <h2 class="lang-de">Videos</h2>
+    <div class="slider" id="video-slider">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" class="active" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="controls">
+      <button onclick="changeVideo(-1)">←</button>
+      <button onclick="changeVideo(1)">→</button>
+    </div>
+  </section>
+
+  <footer class="contacts">
+    <a href="mailto:oleksandr@example.com">Email</a>
+    <a href="https://www.instagram.com/yourusername">Instagram</a>
+    <a href="https://wa.me/YOUR_PHONE_NUMBER">WhatsApp</a>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      const en = document.querySelectorAll('.lang-en');
+      const de = document.querySelectorAll('.lang-de');
+      en.forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+      de.forEach(el => el.style.display = lang === 'de' ? 'block' : 'none');
+    }
+    window.onload = () => switchLang('en');
+
+    let photoIndex = 0;
+    let videoIndex = 0;
+    const photos = document.querySelectorAll('#photo-slider img');
+    const videos = document.querySelectorAll('#video-slider iframe');
+
+    function changePhoto(n) {
+      photos[photoIndex].classList.remove('active');
+      photoIndex = (photoIndex + n + photos.length) % photos.length;
+      photos[photoIndex].classList.add('active');
+    }
+
+    function changeVideo(n) {
+      videos[videoIndex].classList.remove('active');
+      videoIndex = (videoIndex + n + videos.length) % videos.length;
+      videos[videoIndex].classList.add('active');
+    }
+  
+let touchStartX = 0;
+let touchEndX = 0;
+
+function handleSwipe(sliderType) {
+  const threshold = 50;
+  const changeFn = sliderType === 'photo' ? changePhoto : changeVideo;
+  const container = document.getElementById(sliderType + '-slider');
+
+  container.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  container.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const deltaX = touchEndX - touchStartX;
+    if (Math.abs(deltaX) > threshold) {
+      changeFn(deltaX < 0 ? 1 : -1);
+    }
+  });
+}
+
+handleSwipe('photo');
+handleSwipe('video');
+</script>
+
+</body>
+</html>
