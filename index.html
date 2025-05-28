@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oleksandr Kuskov – Portfolio</title>
@@ -43,6 +44,11 @@
       display: block;
     }
     .controls button {
+      background: none;
+      border: none;
+      color: black;
+      font-size: 2rem;
+      font-weight: bold;
       margin: 0 0.5rem;
       padding: 0.4rem 1rem;
       font-size: 1.1rem;
@@ -98,7 +104,7 @@
     <h2 class="lang-de">Videos</h2>
     <div class="slider" id="video-slider">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/o1shHtXhbnw?si=-FFN2sBW1pNWVMAm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+      <iframe class="active" src="https://www.youtube.com/embed/ZbZSe6N_BXs" width="560" height="315" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="controls">
       <button onclick="changeVideo(-1)">←</button>
@@ -106,7 +112,10 @@
     </div>
   </section>
 
-  <footer class="contacts">
+  <footer class="contacts" style="margin-top: 2rem;">
+    <a href="mailto:oleksandr@example.com"><i class="fas fa-envelope"></i><br>Email</a>
+    <a href="https://www.instagram.com/yourusername"><i class="fab fa-instagram"></i><br>Instagram</a>
+    <a href="https://wa.me/YOUR_PHONE_NUMBER"><i class="fab fa-whatsapp"></i><br>WhatsApp</a>
     <a href="mailto:oleksandr@example.com">Email</a>
     <a href="https://www.instagram.com/yourusername">Instagram</a>
     <a href="https://wa.me/YOUR_PHONE_NUMBER">WhatsApp</a>
