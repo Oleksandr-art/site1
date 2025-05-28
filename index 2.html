@@ -22,53 +22,37 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem;
+      padding: 1rem 2rem;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       z-index: 1000;
     }
-    .burger {
+    .lang-switch {
       display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-    .burger div {
-      width: 25px;
-      height: 3px;
-      background: #333;
-    }
-    .nav-menu {
-      display: none;
-      position: fixed;
-      top: 60px;
-      right: 0;
-      background: white;
-      width: 200px;
-      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-      padding: 1rem;
-    }
-    .nav-menu.active {
-      display: block;
+      gap: 1rem;
+      font-weight: bold;
     }
     .section {
-      padding: 80px 20px 20px;
+      padding: 120px 20px 20px;
     }
     .gallery {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
+      text-align: center;
     }
     .gallery img, .gallery iframe {
       max-width: 80%;
       border-radius: 8px;
+      margin-bottom: 1rem;
     }
-    .arrow {
-      font-size: 2rem;
+    .arrow-buttons {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    .arrow-button {
+      font-size: 1.5rem;
       font-weight: bold;
       color: black;
       cursor: pointer;
-      user-select: none;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
     }
     .icons {
       display: flex;
@@ -84,28 +68,16 @@
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
-    .hidden-section {
-      padding: 2rem;
-      background: #f9f9f9;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
   </style>
 </head>
 <body>
   <header>
-    <div><strong>Oleksandr</strong></div>
-    <div class="burger" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
+    <div class="lang-switch">
+      <span>EN</span>
+      <span>DE</span>
     </div>
+    <strong>Oleksandr</strong>
   </header>
-  <div class="nav-menu" id="navMenu">
-    <a href="#about">About</a><br />
-    <a href="#photos">Photos</a><br />
-    <a href="#videos">Videos</a><br />
-    <a href="#contacts">Contacts</a><br />
-    <a href="#freedates">Free Dates</a>
-  </div>
 
   <div class="section" id="about">
     <h2>About Me</h2>
@@ -115,24 +87,23 @@
   <div class="section" id="photos">
     <h2>Photo Gallery</h2>
     <div class="gallery">
-      <div class="arrow" onclick="prevPhoto()">←</div>
       <img id="photoView" src="images/photo1.jpg" alt="Photo" onclick="window.location.href='#photo-gallery'" />
-      <div class="arrow" onclick="nextPhoto()">→</div>
+    </div>
+    <div class="arrow-buttons">
+      <span class="arrow-button" onclick="prevPhoto()">&larr;</span>
+      <span class="arrow-button" onclick="nextPhoto()">&rarr;</span>
     </div>
   </div>
 
   <div class="section" id="videos">
     <h2>Video Gallery</h2>
     <div class="gallery">
-      <div class="arrow" onclick="prevVideo()">←</div>
       <iframe id="videoFrame" width="560" height="315" src="https://www.youtube.com/embed/YOUTUBE_LINK_1" frameborder="0" allowfullscreen></iframe>
-      <div class="arrow" onclick="nextVideo()">→</div>
     </div>
-  </div>
-
-  <div class="section hidden-section" id="freedates">
-    <h2>Free Dates</h2>
-    <p>Here you can display available performance dates.</p>
+    <div class="arrow-buttons">
+      <span class="arrow-button" onclick="prevVideo()">&larr;</span>
+      <span class="arrow-button" onclick="nextVideo()">&rarr;</span>
+    </div>
   </div>
 
   <div class="section icons" id="contacts">
@@ -151,10 +122,6 @@
   </div>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('navMenu').classList.toggle('active');
-    }
-
     const photos = ['images/photo1.jpg'];
     let currentPhoto = 0;
 
@@ -174,8 +141,7 @@
 
     const videos = [
       "https://www.youtube.com/embed/YOUTUBE_LINK_1",
-      "https://www.youtube.com/embed/YOUTUBE_LINK_2",
-      "https://www.youtube.com/embed/YOUTUBE_LINK_3"
+      "https://www.youtube.com/embed/YOUTUBE_LINK_2"
     ];
     let currentVideo = 0;
 
