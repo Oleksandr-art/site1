@@ -70,6 +70,56 @@
 </head>
 <body>
 
+<style>
+.burger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px 0;
+}
+.menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1001;
+}
+.menu a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: black;
+}
+</style>
+<div class="burger" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div class="menu" id="menu">
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Photos</a>
+  <a href="video.html">Videos</a>
+  <a href="about.html">About Me</a>
+</div>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+
+
   <nav>
     <button onclick="switchLang('en')">EN</button>
     <button onclick="switchLang('de')">DE</button>
@@ -112,20 +162,7 @@
     </div>
   </section>
 
-  <footer class="contacts" style="margin-top: 2rem; display: flex; justify-content: center; gap: 40px;">
-  <div style="text-align: center;">
-    <i class="fas fa-envelope" style="font-size: 2rem;"></i><br>Email
-  </div>
-  <div style="text-align: center;">
-    <i class="fab fa-instagram" style="font-size: 2rem;"></i><br>Instagram
-  </div>
-  <div style="text-align: center;">
-    <i class="fab fa-whatsapp" style="font-size: 2rem;"></i><br>WhatsApp
-  </div>
-    <a href="mailto:oleksandr@example.com">Email</a>
-    <a href="https://www.instagram.com/yourusername">Instagram</a>
-    <a href="https://wa.me/YOUR_PHONE_NUMBER">WhatsApp</a>
-  </footer>
+  
 
   <script>
     function switchLang(lang) {
@@ -177,6 +214,13 @@ function handleSwipe(sliderType) {
 handleSwipe('photo');
 handleSwipe('video');
 </script>
+
+
+<footer class="contacts" style="text-align: center; margin-top: 2rem;">
+  <a href="mailto:oleksandr@example.com" style="margin: 0 15px;">Email</a>
+  <a href="https://www.instagram.com/yourusername" style="margin: 0 15px;">Instagram</a>
+  <a href="https://wa.me/YOUR_PHONE_NUMBER" style="margin: 0 15px;">WhatsApp</a>
+</footer>
 
 </body>
 </html>
