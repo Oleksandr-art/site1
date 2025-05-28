@@ -4,30 +4,73 @@
   <meta charset="UTF-8" />
   <title>Photo Gallery</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    h2 {
+      text-align: center;
+      margin-top: 100px;
+    }
+    .content {
       padding: 20px;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .gallery-grid img {
-      width: 100%;
-      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <h2>Photo Gallery</h2>
-  <div class="gallery-grid">
-    <img src="images/photo1.jpg" alt="Photo 1">
-    <img src="images/photo2.jpg" alt="Photo 2">
-    <img src="images/photo3.jpg" alt="Photo 3">
-    <img src="images/photo4.jpg" alt="Photo 4">
-    <img src="images/photo5.jpg" alt="Photo 5">
+  
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.burger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px 0;
+}
+.menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1001;
+}
+.menu a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: black;
+}
+</style>
+<div class="burger" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div class="menu" id="menu">
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Photos</a>
+  <a href="video.html">Videos</a>
+  <a href="about.html">About Me</a>
+</div>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+</script>
 
+  <h2>Photo Gallery</h2>
+  <div class="content">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px;"><img src="images/photo1.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo2.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo3.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo4.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo5.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo6.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo7.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo8.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo9.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo10.jpg" style="width: 100%; border-radius: 8px;" /></div>
   </div>
 </body>
 </html>
