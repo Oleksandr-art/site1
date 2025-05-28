@@ -4,73 +4,127 @@
   <meta charset="UTF-8" />
   <title>Photo Gallery</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
     h2 {
       text-align: center;
       margin-top: 100px;
     }
-    .content {
+    .lang-switch {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+    .lang-switch a {
+      margin-right: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+    }
+    .burger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: black;
+      margin: 5px 0;
+    }
+    .menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      z-index: 1001;
+    }
+    .menu a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      color: black;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 10px;
       padding: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
     }
   </style>
 </head>
 <body>
-  
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-.burger {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  z-index: 1000;
-}
-.burger div {
-  width: 25px;
-  height: 3px;
-  background-color: black;
-  margin: 5px 0;
-}
-.menu {
-  display: none;
-  position: fixed;
-  top: 60px;
-  right: 20px;
-  background: white;
-  border: 1px solid #ccc;
-  padding: 10px;
-  z-index: 1001;
-}
-.menu a {
-  display: block;
-  margin: 10px 0;
-  text-decoration: none;
-  color: black;
-}
-</style>
-<div class="burger" onclick="toggleMenu()">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-<div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Photos</a>
-  <a href="video.html">Videos</a>
-  <a href="about.html">About Me</a>
-</div>
-<script>
-function toggleMenu() {
-  const menu = document.getElementById('menu');
-  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-}
-</script>
-
-  <h2>Photo Gallery</h2>
-  <div class="content">
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px;"><img src="images/photo1.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo2.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo3.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo4.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo5.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo6.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo7.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo8.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo9.jpg" style="width: 100%; border-radius: 8px;" /><img src="images/photo10.jpg" style="width: 100%; border-radius: 8px;" /></div>
+  <div class="lang-switch">
+    <a href="#" onclick="switchLang('en')">EN</a>
+    <a href="#" onclick="switchLang('de')">DE</a>
   </div>
+  <div class="burger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Photos</a>
+    <a href="video.html">Videos</a>
+    <a href="about.html">About Me</a>
+  </div>
+  <h2 id="page-title">Photo Gallery</h2>
+  <div class="gallery">
+<img src="images/photo1.jpg" onclick="openLightbox(this.src)" /><img src="images/photo2.jpg" onclick="openLightbox(this.src)" /><img src="images/photo3.jpg" onclick="openLightbox(this.src)" /><img src="images/photo4.jpg" onclick="openLightbox(this.src)" /><img src="images/photo5.jpg" onclick="openLightbox(this.src)" /><img src="images/photo6.jpg" onclick="openLightbox(this.src)" /><img src="images/photo7.jpg" onclick="openLightbox(this.src)" /><img src="images/photo8.jpg" onclick="openLightbox(this.src)" /><img src="images/photo9.jpg" onclick="openLightbox(this.src)" /><img src="images/photo10.jpg" onclick="openLightbox(this.src)" />
+  </div>
+  <div id="lightbox" onclick="this.style.display='none'">
+    <img src="" alt="Preview" />
+  </div>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+    function openLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      lb.style.display = 'flex';
+      lb.querySelector('img').src = src;
+    }
+    function switchLang(lang) {
+      const title = document.getElementById("page-title");
+      if (lang === 'de') title.innerText = "Fotogalerie";
+      else title.innerText = "Photo Gallery";
+    }
+  </script>
 </body>
 </html>
