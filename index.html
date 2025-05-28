@@ -1,167 +1,197 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oleksandr Kuskov – Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oleksandr Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
-      padding: 2rem;
-      background: #fff;
-      color: #111;
-      text-align: center;
+      padding: 0;
       scroll-behavior: smooth;
     }
-    nav {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-    }
-    nav button {
-      background: none;
-      border: none;
-      font-size: 1rem;
-      margin: 0 0.5rem;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    section {
-      margin-bottom: 4rem;
-    }
-    .slider img, .slider iframe {
-      max-width: 800px;
+    header {
+      position: fixed;
       width: 100%;
-      margin: auto;
-      display: none;
-      border-radius: 1rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background: white;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
     }
-    .slider img.active, .slider iframe.active {
+    .burger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background: #333;
+    }
+    .nav-menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      right: 0;
+      background: white;
+      width: 200px;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+    }
+    .nav-menu.active {
       display: block;
     }
-    .controls button {
-      margin: 0 0.5rem;
-      padding: 0.4rem 1rem;
-      font-size: 1.1rem;
+    .section {
+      padding: 80px 20px 20px;
+    }
+    .gallery {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .gallery img, .gallery iframe {
+      max-width: 80%;
+      border-radius: 8px;
+    }
+    .arrow {
+      font-size: 2rem;
+      font-weight: bold;
+      color: black;
       cursor: pointer;
+      user-select: none;
     }
-    .info {
-      max-width: 600px;
-      margin: auto;
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 2rem;
+      flex-wrap: wrap;
     }
-    .contacts a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #111;
+    .icon-block {
+      text-align: center;
     }
-    .lang-de {
-      display: none;
+    .icon-block i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hidden-section {
+      padding: 2rem;
+      background: #f9f9f9;
+      border-radius: 8px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-
-  <nav>
-    <button onclick="switchLang('en')">EN</button>
-    <button onclick="switchLang('de')">DE</button>
-  </nav>
-
-  <section class="info">
-    <h1 class="lang-en">Oleksandr Kuskov – Icarian Games Performer</h1>
-    <h1 class="lang-de">Oleksandr Kuskov – Ikarier-Akrobat</h1>
-
-    <p class="lang-en">I specialize in high-level Icarian Games acts with years of international experience. My work combines precision, strength, and elegance.</p>
-    <p class="lang-de">Ich spezialisiere mich auf Ikarier-Akrobatik mit internationaler Erfahrung. Meine Arbeit verbindet Präzision, Kraft und Eleganz.</p>
-  </section>
-
-  <section onclick="document.getElementById('photo-gallery').scrollIntoView({behavior:'smooth'})">
-    <h2 class="lang-en">Photos</h2>
-    <h2 class="lang-de">Fotos</h2>
-    <div class="slider" id="photo-slider">
-      <img src="images/photo1.jpg" class="active" alt="Photo 1">
-      <img src="images/photo2.jpg" alt="Photo 2">
-      <img src="images/photo3.jpg" alt="Photo 3">
-      <img src="images/photo4.jpg" alt="Photo 4">
-      <img src="images/photo5.jpg" alt="Photo 5">
+  <header>
+    <div><strong>Oleksandr</strong></div>
+    <div class="burger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
     </div>
-    <div class="controls">
-      <button onclick="changePhoto(-1)">←</button>
-      <button onclick="changePhoto(1)">→</button>
-    </div>
-  </section>
+  </header>
+  <div class="nav-menu" id="navMenu">
+    <a href="#about">About</a><br />
+    <a href="#photos">Photos</a><br />
+    <a href="#videos">Videos</a><br />
+    <a href="#contacts">Contacts</a><br />
+    <a href="#freedates">Free Dates</a>
+  </div>
 
-  <section onclick="document.getElementById('video-gallery').scrollIntoView({behavior:'smooth'})">
-    <h2 class="lang-en">Videos</h2>
-    <h2 class="lang-de">Videos</h2>
-    <div class="slider" id="video-slider">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/o1shHtXhbnw?si=-FFN2sBW1pNWVMAm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="controls">
-      <button onclick="changeVideo(-1)">←</button>
-      <button onclick="changeVideo(1)">→</button>
-    </div>
-  </section>
+  <div class="section" id="about">
+    <h2>About Me</h2>
+    <p>This is a placeholder for information about me.</p>
+  </div>
 
-  <footer class="contacts">
-    <a href="mailto:oleksandr@example.com">Email</a>
-    <a href="https://www.instagram.com/yourusername">Instagram</a>
-    <a href="https://wa.me/YOUR_PHONE_NUMBER">WhatsApp</a>
-  </footer>
+  <div class="section" id="photos">
+    <h2>Photo Gallery</h2>
+    <div class="gallery">
+      <div class="arrow" onclick="prevPhoto()">←</div>
+      <img id="photoView" src="images/photo1.jpg" alt="Photo" onclick="window.location.href='#photo-gallery'" />
+      <div class="arrow" onclick="nextPhoto()">→</div>
+    </div>
+  </div>
+
+  <div class="section" id="videos">
+    <h2>Video Gallery</h2>
+    <div class="gallery">
+      <div class="arrow" onclick="prevVideo()">←</div>
+      <iframe id="videoFrame" width="560" height="315" src="https://www.youtube.com/embed/YOUTUBE_LINK_1" frameborder="0" allowfullscreen></iframe>
+      <div class="arrow" onclick="nextVideo()">→</div>
+    </div>
+  </div>
+
+  <div class="section hidden-section" id="freedates">
+    <h2>Free Dates</h2>
+    <p>Here you can display available performance dates.</p>
+  </div>
+
+  <div class="section icons" id="contacts">
+    <div class="icon-block">
+      <i class="fas fa-envelope"></i>
+      <div>Email</div>
+    </div>
+    <div class="icon-block">
+      <i class="fab fa-instagram"></i>
+      <div>Instagram</div>
+    </div>
+    <div class="icon-block">
+      <i class="fab fa-whatsapp"></i>
+      <div>WhatsApp</div>
+    </div>
+  </div>
 
   <script>
-    function switchLang(lang) {
-      const en = document.querySelectorAll('.lang-en');
-      const de = document.querySelectorAll('.lang-de');
-      en.forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
-      de.forEach(el => el.style.display = lang === 'de' ? 'block' : 'none');
-    }
-    window.onload = () => switchLang('en');
-
-    let photoIndex = 0;
-    let videoIndex = 0;
-    const photos = document.querySelectorAll('#photo-slider img');
-    const videos = document.querySelectorAll('#video-slider iframe');
-
-    function changePhoto(n) {
-      photos[photoIndex].classList.remove('active');
-      photoIndex = (photoIndex + n + photos.length) % photos.length;
-      photos[photoIndex].classList.add('active');
+    function toggleMenu() {
+      document.getElementById('navMenu').classList.toggle('active');
     }
 
-    function changeVideo(n) {
-      videos[videoIndex].classList.remove('active');
-      videoIndex = (videoIndex + n + videos.length) % videos.length;
-      videos[videoIndex].classList.add('active');
+    const photos = ['images/photo1.jpg'];
+    let currentPhoto = 0;
+
+    function showPhoto() {
+      document.getElementById('photoView').src = photos[currentPhoto];
     }
-  
-let touchStartX = 0;
-let touchEndX = 0;
 
-function handleSwipe(sliderType) {
-  const threshold = 50;
-  const changeFn = sliderType === 'photo' ? changePhoto : changeVideo;
-  const container = document.getElementById(sliderType + '-slider');
-
-  container.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-
-  container.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    const deltaX = touchEndX - touchStartX;
-    if (Math.abs(deltaX) > threshold) {
-      changeFn(deltaX < 0 ? 1 : -1);
+    function prevPhoto() {
+      currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+      showPhoto();
     }
-  });
-}
 
-handleSwipe('photo');
-handleSwipe('video');
-</script>
+    function nextPhoto() {
+      currentPhoto = (currentPhoto + 1) % photos.length;
+      showPhoto();
+    }
 
+    const videos = [
+      "https://www.youtube.com/embed/YOUTUBE_LINK_1",
+      "https://www.youtube.com/embed/YOUTUBE_LINK_2",
+      "https://www.youtube.com/embed/YOUTUBE_LINK_3"
+    ];
+    let currentVideo = 0;
+
+    function showVideo() {
+      document.getElementById('videoFrame').src = videos[currentVideo];
+    }
+
+    function prevVideo() {
+      currentVideo = (currentVideo - 1 + videos.length) % videos.length;
+      showVideo();
+    }
+
+    function nextVideo() {
+      currentVideo = (currentVideo + 1) % videos.length;
+      showVideo();
+    }
+  </script>
 </body>
 </html>
