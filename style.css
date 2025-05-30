@@ -1,0 +1,40 @@
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+    }
+
+    .burger {
+        font-size: 20px;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .language {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    nav a {
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .burger {
+            font-size: 24px;
+        }
+
+        .language {
+            font-size: 18px;
+        }
+
+        nav a {
+            font-size: 20px;
+        }
+    }
+    
