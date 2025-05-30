@@ -7,9 +7,68 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Oleksandr Kuskov – Portfolio</title>
-
-<link href="style.css" rel="stylesheet"/>  <link rel="stylesheet" href="style.css">
-</head>
+<style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #fff;
+      color: #111;
+      text-align: center;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+    nav button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    .slider img, .slider iframe {
+      max-width: 800px;
+      width: 100%;
+      margin: auto;
+      display: none;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .slider img.active, .slider iframe.active {
+      display: block;
+    }
+    .controls button {
+      background: none;
+      border: none;
+      color: black;
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0 0.5rem;
+      padding: 0.4rem 1rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .info {
+      max-width: 600px;
+      margin: auto;
+    }
+    .contacts a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #111;
+    }
+    .lang-de {
+      display: none;
+    }
+  </style>
+<link href="style.css" rel="stylesheet"/></head>
 <body>
 <style>
 .burger {
