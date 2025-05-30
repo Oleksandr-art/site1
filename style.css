@@ -1,40 +1,67 @@
 
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        font-size: 16px;
-    }
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
 
+/* Бургер */
+.burger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Языковая панель */
+.language {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    font-size: 18px;
+}
+
+/* Мобильное меню */
+nav {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 999;
+    display: none;
+    width: 160px;
+}
+
+nav.show {
+    display: block;
+}
+
+nav a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
     .burger {
-        font-size: 20px;
-        cursor: pointer;
-        padding: 10px;
+        font-size: 28px;
     }
 
     .language {
-        font-size: 16px;
-        padding: 10px;
+        font-size: 20px;
     }
 
     nav a {
-        font-size: 18px;
-        display: block;
-        padding: 10px;
-        text-align: center;
+        font-size: 20px;
     }
-
-    @media (max-width: 768px) {
-        .burger {
-            font-size: 24px;
-        }
-
-        .language {
-            font-size: 18px;
-        }
-
-        nav a {
-            font-size: 20px;
-        }
-    }
-    
+}
