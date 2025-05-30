@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Contact</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<style>
+  <meta charset="UTF-8" />
+  <title>Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -32,7 +31,7 @@
       z-index: 1000;
     }
     .burger div {
-      width: 36px;
+      width: 30px;
       height: 4px;
       background-color: black;
       margin: 5px 0;
@@ -76,36 +75,37 @@
   </style>
 </head>
 <body>
-<div class="lang-switch">
-<a href="#" onclick="switchLang('en')">EN</a>
-<a href="#" onclick="switchLang('de')">DE</a>
-</div>
+  <div class="lang-switch">
+    <a href="#" onclick="switchLang('en')">EN</a>
+    <a href="#" onclick="switchLang('de')">DE</a>
+  </div>
+  
 <div class="burger" onclick="toggleMenu()">
-<div></div><div></div><div></div>
+  <div></div><div></div><div></div>
 </div>
 <div class="menu" id="menu">
-<a href="index.html">Home</a>
-<a href="gallery.html">Photos</a>
-<a href="video.html">Videos</a>
-<a href="about.html">About Me</a>
-<a href="contact.html">Contact</a>
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Photos</a>
+  <a href="video.html">Videos</a>
+  <a href="about.html">About Me</a>
+  <a href="contact.html">Contact</a>
 </div>
 <div></div><div></div>
-
-<div class="menu" id="menu">
-<a href="index.html">Home</a>
-<a href="gallery.html">Photos</a>
-<a href="video.html">Videos</a>
-<a href="about.html">About Me</a>
-<a href="contact.html">Contact</a>
-</div>
-<h2 id="page-title">Contact</h2>
-<div class="contact-content" id="contact-content">
-<p><a href="mailto:your@email.com">your@email.com</a></p>
-<p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
-<p><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></p>
-</div>
-<script>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Photos</a>
+    <a href="video.html">Videos</a>
+    <a href="about.html">About Me</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <h2 id="page-title">Contact</h2>
+  <div class="contact-content" id="contact-content">
+    <p><a href="mailto:your@email.com">your@email.com</a></p>
+    <p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
+    <p><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></p>
+  </div>
+  <script>
     function toggleMenu() {
       const menu = document.getElementById('menu');
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';

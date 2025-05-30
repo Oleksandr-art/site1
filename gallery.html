@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Photo Gallery</title>
-<style>
+  <meta charset="UTF-8" />
+  <title>Photo Gallery</title>
+  <style>
     
     body {
       font-family: Arial, sans-serif;
@@ -38,7 +37,7 @@
       z-index: 1000;
     }
     .burger div {
-      width: 36px;
+      width: 30px;
       height: 4px;
       background-color: black;
       margin: 6px 0;
@@ -97,36 +96,37 @@
   </style>
 </head>
 <body>
-<div class="lang-switch">
-<a href="#" onclick="switchLang('en')">EN</a>
-<a href="#" onclick="switchLang('de')">DE</a>
-</div>
+  <div class="lang-switch">
+    <a href="#" onclick="switchLang('en')">EN</a>
+    <a href="#" onclick="switchLang('de')">DE</a>
+  </div>
+  
 <div class="burger" onclick="toggleMenu()">
-<div></div><div></div><div></div>
+  <div></div><div></div><div></div>
 </div>
 <div class="menu" id="menu">
-<a href="index.html">Home</a>
-<a href="gallery.html">Photos</a>
-<a href="video.html">Videos</a>
-<a href="about.html">About Me</a>
-<a href="contact.html">Contact</a>
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Photos</a>
+  <a href="video.html">Videos</a>
+  <a href="about.html">About Me</a>
+  <a href="contact.html">Contact</a>
 </div>
 <div></div><div></div>
-
-<div class="menu" id="menu">
-<a href="index.html">Home</a>
-<a href="gallery.html">Photos</a>
-<a href="video.html">Videos</a>
-<a href="about.html">About Me</a>
-</div>
-<h2 id="page-title">Photo Gallery</h2>
-<div class="gallery">
-<img onclick="openLightbox(1)" src="images/photo1.jpg"/><img onclick="openLightbox(2)" src="images/photo2.jpg"/><img onclick="openLightbox(3)" src="images/photo3.jpg"/><img onclick="openLightbox(4)" src="images/photo4.jpg"/><img onclick="openLightbox(5)" src="images/photo5.jpg"/><img onclick="openLightbox(6)" src="images/photo6.jpg"/><img onclick="openLightbox(7)" src="images/photo7.jpg"/><img onclick="openLightbox(8)" src="images/photo8.jpg"/><img onclick="openLightbox(9)" src="images/photo9.jpg"/><img onclick="openLightbox(10)" src="images/photo10.jpg"/>
-</div>
-<div id="lightbox" onclick="this.style.display='none'">
-<img id="lightbox-img" src=""/>
-</div>
-<script>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Photos</a>
+    <a href="video.html">Videos</a>
+    <a href="about.html">About Me</a>
+  </div>
+  <h2 id="page-title">Photo Gallery</h2>
+  <div class="gallery">
+<img src="images/photo1.jpg" onclick="openLightbox(1)" /><img src="images/photo2.jpg" onclick="openLightbox(2)" /><img src="images/photo3.jpg" onclick="openLightbox(3)" /><img src="images/photo4.jpg" onclick="openLightbox(4)" /><img src="images/photo5.jpg" onclick="openLightbox(5)" /><img src="images/photo6.jpg" onclick="openLightbox(6)" /><img src="images/photo7.jpg" onclick="openLightbox(7)" /><img src="images/photo8.jpg" onclick="openLightbox(8)" /><img src="images/photo9.jpg" onclick="openLightbox(9)" /><img src="images/photo10.jpg" onclick="openLightbox(10)" />
+  </div>
+  <div id="lightbox" onclick="this.style.display='none'">
+    <img src="" id="lightbox-img" />
+  </div>
+  <script>
     const totalImages = 10;
     let currentImgIndex = 1;
     const lightbox = document.getElementById('lightbox');

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Video Gallery</title>
-<style>
+  <meta charset="UTF-8" />
+  <title>Video Gallery</title>
+  <style>
     
     body {
       font-family: Arial, sans-serif;
@@ -38,7 +37,7 @@
       z-index: 1000;
     }
     .burger div {
-      width: 36px;
+      width: 30px;
       height: 4px;
       background-color: black;
       margin: 6px 0;
@@ -76,33 +75,34 @@
   </style>
 </head>
 <body>
-<div class="lang-switch">
-<a href="#" onclick="switchLang('en')">EN</a>
-<a href="#" onclick="switchLang('de')">DE</a>
-</div>
+  <div class="lang-switch">
+    <a href="#" onclick="switchLang('en')">EN</a>
+    <a href="#" onclick="switchLang('de')">DE</a>
+  </div>
+  
 <div class="burger" onclick="toggleMenu()">
-<div></div><div></div><div></div>
+  <div></div><div></div><div></div>
 </div>
 <div class="menu" id="menu">
-<a href="index.html">Home</a>
-<a href="gallery.html">Photos</a>
-<a href="video.html">Videos</a>
-<a href="about.html">About Me</a>
-<a href="contact.html">Contact</a>
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Photos</a>
+  <a href="video.html">Videos</a>
+  <a href="about.html">About Me</a>
+  <a href="contact.html">Contact</a>
 </div>
 <div></div><div></div>
-
-<div class="menu" id="menu">
-<a href="index.html">Home</a>
-<a href="gallery.html">Photos</a>
-<a href="video.html">Videos</a>
-<a href="about.html">About Me</a>
-</div>
-<h2 id="page-title">Video Gallery</h2>
-<div class="video-gallery">
-<iframe allowfullscreen="" src="https://www.youtube.com/embed/ZbZSe6N_BXs"></iframe><iframe allowfullscreen="" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe><iframe allowfullscreen="" src="https://www.youtube.com/embed/kXYiU_JCYtU"></iframe>
-</div>
-<script>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Photos</a>
+    <a href="video.html">Videos</a>
+    <a href="about.html">About Me</a>
+  </div>
+  <h2 id="page-title">Video Gallery</h2>
+  <div class="video-gallery">
+<iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen></iframe><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><iframe src="https://www.youtube.com/embed/kXYiU_JCYtU" allowfullscreen></iframe>
+  </div>
+  <script>
     function toggleMenu() {
       const menu = document.getElementById('menu');
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
