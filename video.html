@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>About Me</title>
+<title>Video Gallery</title>
 
 <style>
     body {
@@ -108,11 +108,13 @@
 <a href="about.html">About Me</a>
 <a href="contact.html">Contact</a>
 </div>
+<div class="lang-switch">
+<a href="#" onclick="switchLang('en')">EN</a>
+<a href="#" onclick="switchLang('de')">DE</a>
+</div>
 
 
-
-<div></div>
-<div></div>
+<div></div><div></div>
 
 <div class="menu" id="menu">
 <a href="index.html">Home</a>
@@ -120,11 +122,11 @@
 <a href="video.html">Videos</a>
 <a href="about.html">About Me</a>
 </div>
-
-<h2>About Me</h2>
-<div class="content">
-<p style="text-align:center;">You can place your personal description here. This section is About Me.</p>
+<h2 id="page-title">Video Gallery</h2>
+<div class="video-gallery">
+<iframe allowfullscreen="" src="https://www.youtube.com/embed/ZbZSe6N_BXs"></iframe><iframe allowfullscreen="" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe><iframe allowfullscreen="" src="https://www.youtube.com/embed/kXYiU_JCYtU"></iframe>
 </div>
+
 <script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script><script>
 function toggleMenu() {
   const menu = document.getElementById('menu');

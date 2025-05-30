@@ -5,22 +5,115 @@
 <meta charset="utf-8"/>
 <title>Photo Gallery</title>
 
-<link href="style.css" rel="stylesheet"/></head>
-<body>
-<div class="lang-switch">
-<a href="#" onclick="switchLang('en')">EN</a>
-<a href="#" onclick="switchLang('de')">DE</a>
-</div>
-<div class="burger" onclick="toggleMenu()">
+<style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #fff;
+      color: #111;
+      text-align: center;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+    nav button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    .slider img, .slider iframe {
+      max-width: 800px;
+      width: 100%;
+      margin: auto;
+      display: none;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .slider img.active, .slider iframe.active {
+      display: block;
+    }
+    .controls button {
+      background: none;
+      border: none;
+      color: black;
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0 0.5rem;
+      padding: 0.4rem 1rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .info {
+      max-width: 600px;
+      margin: auto;
+    }
+    .contacts a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #111;
+    }
+    .lang-de {
+      display: none;
+    }
+  </style><style>
+.burger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px 0;
+}
+.menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1001;
+}
+.menu a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: black;
+}
+</style></head>
+<body><nav>
+<button onclick="switchLang('en')">EN</button>
+<button onclick="switchLang('de')">DE</button>
+</nav><div class="burger" onclick="toggleMenu()">
 <div></div><div></div><div></div>
-</div>
-<div class="menu" id="menu">
+</div><div class="menu" id="menu">
 <a href="index.html">Home</a>
 <a href="gallery.html">Photos</a>
 <a href="video.html">Videos</a>
 <a href="about.html">About Me</a>
 <a href="contact.html">Contact</a>
 </div>
+<div class="lang-switch">
+<a href="#" onclick="switchLang('en')">EN</a>
+<a href="#" onclick="switchLang('de')">DE</a>
+</div>
+
+
 <div></div><div></div>
 
 <div class="menu" id="menu">
@@ -36,60 +129,60 @@
 <div id="lightbox" onclick="this.style.display='none'">
 <img id="lightbox-img" src=""/>
 </div>
-<script>
-    const totalImages = 10;
-    let currentImgIndex = 1;
-    const lightbox = document.getElementById('lightbox');
-    const imgTag = document.getElementById('lightbox-img');
 
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    }
-
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script><script>
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+</script><script>
     function switchLang(lang) {
-      const title = document.getElementById("page-title");
-      if (lang === 'de') title.innerText = "Fotogalerie";
-      else title.innerText = "Photo Gallery";
+      const en = document.querySelectorAll('.lang-en');
+      const de = document.querySelectorAll('.lang-de');
+      en.forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+      de.forEach(el => el.style.display = lang === 'de' ? 'block' : 'none');
+    }
+    window.onload = () => switchLang('en');
+
+    let photoIndex = 0;
+    let videoIndex = 0;
+    const photos = document.querySelectorAll('#photo-slider img');
+    const videos = document.querySelectorAll('#video-slider iframe');
+
+    function changePhoto(n) {
+      photos[photoIndex].classList.remove('active');
+      photoIndex = (photoIndex + n + photos.length) % photos.length;
+      photos[photoIndex].classList.add('active');
     }
 
-    function openLightbox(index) {
-      currentImgIndex = index;
-      imgTag.src = `images/photo${index}.jpg`;
-      lightbox.style.display = 'flex';
+    function changeVideo(n) {
+      videos[videoIndex].classList.remove('active');
+      videoIndex = (videoIndex + n + videos.length) % videos.length;
+      videos[videoIndex].classList.add('active');
     }
+  
+let touchStartX = 0;
+let touchEndX = 0;
 
-    lightbox.addEventListener('touchstart', handleTouchStart, false);
-    lightbox.addEventListener('touchmove', handleTouchMove, false);
+function handleSwipe(sliderType) {
+  const threshold = 50;
+  const changeFn = sliderType === 'photo' ? changePhoto : changeVideo;
+  const container = document.getElementById(sliderType + '-slider');
 
-    let xDown = null;
+  container.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
 
-    function handleTouchStart(evt) {
-      xDown = evt.touches[0].clientX;
+  container.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const deltaX = touchEndX - touchStartX;
+    if (Math.abs(deltaX) > threshold) {
+      changeFn(deltaX < 0 ? 1 : -1);
     }
+  });
+}
 
-    function handleTouchMove(evt) {
-      if (!xDown) return;
-
-      let xUp = evt.touches[0].clientX;
-      let xDiff = xDown - xUp;
-
-      if (Math.abs(xDiff) > 50) {
-        if (xDiff > 0) nextImage(); // swipe left
-        else prevImage(); // swipe right
-        xDown = null;
-      }
-    }
-
-    function nextImage() {
-      currentImgIndex = currentImgIndex < totalImages ? currentImgIndex + 1 : 1;
-      imgTag.src = `images/photo${currentImgIndex}.jpg`;
-    }
-
-    function prevImage() {
-      currentImgIndex = currentImgIndex > 1 ? currentImgIndex - 1 : totalImages;
-      imgTag.src = `images/photo${currentImgIndex}.jpg`;
-    }
-  </script>
-</body>
+handleSwipe('photo');
+handleSwipe('video');
+</script></body>
 </html>
