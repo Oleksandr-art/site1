@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Photo Gallery</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 32px;
+    }
+    .lang-switch {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+    .lang-switch a {
+      margin-right: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+      font-size: 18px;
+    }
+    .burger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .burger div {
+      width: 30px;
+      height: 4px;
+      background-color: black;
+      margin: 6px 0;
+    }
+    .menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      z-index: 1001;
+    }
+    .menu a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 10px;
+      padding: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <a href="#" onclick="switchLang('en')">EN</a>
+    <a href="#" onclick="switchLang('de')">DE</a>
+  </div>
+  
+<div class="burger" onclick="toggleMenu()">
+  <div></div><div></div><div></div>
+</div>
+<div class="menu" id="menu">
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Photos</a>
+  <a href="video.html">Videos</a>
+  <a href="about.html">About Me</a>
+  <a href="contact.html">Contact</a>
+</div>
+<div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Photos</a>
+    <a href="video.html">Videos</a>
+    <a href="about.html">About Me</a>
+  </div>
+  <h2 id="page-title">Photo Gallery</h2>
+  <div class="gallery">
+<img src="images/photo1.jpg" onclick="openLightbox(1)" /><img src="images/photo2.jpg" onclick="openLightbox(2)" /><img src="images/photo3.jpg" onclick="openLightbox(3)" /><img src="images/photo4.jpg" onclick="openLightbox(4)" /><img src="images/photo5.jpg" onclick="openLightbox(5)" /><img src="images/photo6.jpg" onclick="openLightbox(6)" /><img src="images/photo7.jpg" onclick="openLightbox(7)" /><img src="images/photo8.jpg" onclick="openLightbox(8)" /><img src="images/photo9.jpg" onclick="openLightbox(9)" /><img src="images/photo10.jpg" onclick="openLightbox(10)" />
+  </div>
+  <div id="lightbox" onclick="this.style.display='none'">
+    <img src="" id="lightbox-img" />
+  </div>
+  <script>
+    const totalImages = 10;
+    let currentImgIndex = 1;
+    const lightbox = document.getElementById('lightbox');
+    const imgTag = document.getElementById('lightbox-img');
+
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function switchLang(lang) {
+      const title = document.getElementById("page-title");
+      if (lang === 'de') title.innerText = "Fotogalerie";
+      else title.innerText = "Photo Gallery";
+    }
+
+    function openLightbox(index) {
+      currentImgIndex = index;
+      imgTag.src = `images/photo${index}.jpg`;
+      lightbox.style.display = 'flex';
+    }
+
+    lightbox.addEventListener('touchstart', handleTouchStart, false);
+    lightbox.addEventListener('touchmove', handleTouchMove, false);
+
+    let xDown = null;
+
+    function handleTouchStart(evt) {
+      xDown = evt.touches[0].clientX;
+    }
+
+    function handleTouchMove(evt) {
+      if (!xDown) return;
+
+      let xUp = evt.touches[0].clientX;
+      let xDiff = xDown - xUp;
+
+      if (Math.abs(xDiff) > 50) {
+        if (xDiff > 0) nextImage(); // swipe left
+        else prevImage(); // swipe right
+        xDown = null;
+      }
+    }
+
+    function nextImage() {
+      currentImgIndex = currentImgIndex < totalImages ? currentImgIndex + 1 : 1;
+      imgTag.src = `images/photo${currentImgIndex}.jpg`;
+    }
+
+    function prevImage() {
+      currentImgIndex = currentImgIndex > 1 ? currentImgIndex - 1 : totalImages;
+      imgTag.src = `images/photo${currentImgIndex}.jpg`;
+    }
+  </script>
+</body>
+</html>
