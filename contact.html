@@ -5,7 +5,6 @@
 <meta charset="utf-8"/>
 <title>Contact</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-
 <style>
     body {
       font-family: sans-serif;
@@ -66,38 +65,8 @@
     .lang-de {
       display: none;
     }
-  </style><style>
-.burger {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  z-index: 1000;
-}
-.burger div {
-  width: 25px;
-  height: 3px;
-  background-color: black;
-  margin: 5px 0;
-}
-.menu {
-  display: none;
-  position: fixed;
-  top: 60px;
-  right: 20px;
-  background: white;
-  border: 1px solid #ccc;
-  padding: 10px;
-  z-index: 1001;
-}
-.menu a {
-  display: block;
-  margin: 10px 0;
-  text-decoration: none;
-  color: black;
-}
-</style></head>
-<body><nav>
+  </style></head>
+<body style="padding: 2rem; text-align: center;"><nav>
 <button onclick="switchLang('en')">EN</button>
 <button onclick="switchLang('de')">DE</button>
 </nav><div class="burger" onclick="toggleMenu()">
@@ -113,10 +82,7 @@
 <a href="#" onclick="switchLang('en')">EN</a>
 <a href="#" onclick="switchLang('de')">DE</a>
 </div>
-
-
 <div></div><div></div>
-
 <div class="menu" id="menu">
 <a href="index.html">Home</a>
 <a href="gallery.html">Photos</a>
@@ -130,7 +96,6 @@
 <p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
 <p><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></p>
 </div>
-
 <script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script><script>
 function toggleMenu() {
   const menu = document.getElementById('menu');
