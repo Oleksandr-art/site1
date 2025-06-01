@@ -1,0 +1,89 @@
+
+/* Общий стиль для всех страниц */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: white;
+  color: black;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  width: 200px;
+}
+
+nav a {
+  padding: 1rem;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+}
+
+nav a:last-child {
+  border-bottom: none;
+}
+
+.menu-toggle {
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-active nav {
+  display: flex;
+}
+
+.language-switch {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  font-size: 18px;
+}
+
+.language-switch button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+main {
+  padding: 5rem 1rem 2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 18px;
+}
