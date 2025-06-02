@@ -7,6 +7,83 @@
         top: 0;
         left: 0;
         width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 9999;
+    }
+
+    .header-content {
+        height: 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .language-switcher a {
+        margin: 0 5px;
+        text-decoration: none;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .burger-menu {
+        width: 30px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .burger-menu span {
+        display: block;
+        height: 4px;
+        background-color: #333;
+        border-radius: 2px;
+    }
+
+    .fullscreen-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(255, 255, 255, 0.97);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        font-size: 2em;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 9998;
+    }
+
+    .fullscreen-menu.open {
+        transform: translateY(0);
+    }
+
+    .fullscreen-menu a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+
+    body {
+        margin-top: 90px;
+    }
+</style>
+
+<style>
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 60px;
         background-color: white;
         display: flex;
@@ -209,13 +286,15 @@
 </head>
 <body>
 <div class="fixed-header">
-    <div class="language-switcher">
-        <a href="#">EN</a> | <a href="#">DE</a>
-    </div>
-    <div class="burger-menu" id="burger">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="header-content">
+        <div class="language-switcher">
+            <a href="#">EN</a> | <a href="#">DE</a>
+        </div>
+        <div class="burger-menu" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
 </div>
 
@@ -226,6 +305,26 @@
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const burger = document.getElementById("burger");
+        const menu = document.getElementById("fullscreenMenu");
+
+        burger.addEventListener("click", function() {
+            menu.classList.toggle("open");
+        });
+    });
+</script>
+
+<div class="fixed-header">
+    <div class="language-switcher">
+        <a href="#">EN</a> | <a href="#">DE</a>
+    </div>
+    
+</div>
+
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
