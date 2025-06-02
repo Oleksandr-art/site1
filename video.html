@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Gallery</title>
   <style>
+    
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      font-size: 18px;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 32px;
     }
     .lang-switch {
       position: fixed;
@@ -19,8 +25,8 @@
     .lang-switch a {
       margin-right: 10px;
       text-decoration: none;
-      color: black;
       font-weight: bold;
+      color: #000;
       font-size: 18px;
     }
     .burger {
@@ -34,7 +40,7 @@
       width: 30px;
       height: 4px;
       background-color: black;
-      margin: 5px 0;
+      margin: 6px 0;
     }
     .menu {
       display: none;
@@ -53,24 +59,18 @@
       color: black;
       font-size: 18px;
     }
-    h2 {
-      text-align: center;
-      margin-top: 100px;
-      font-size: 32px;
+
+    .video-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding: 40px;
     }
-    .contact-content {
-      max-width: 600px;
-      margin: 50px auto;
-      text-align: center;
-      font-size: 20px;
-    }
-    .contact-content p {
-      margin: 20px 0;
-    }
-    .contact-content a {
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
+    .video-gallery iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 8px;
+      border: none;
     }
   </style>
 </head>
@@ -97,13 +97,10 @@
     <a href="gallery.html">Photos</a>
     <a href="video.html">Videos</a>
     <a href="about.html">About Me</a>
-    <a href="contact.html">Contact</a>
   </div>
-  <h2 id="page-title">Contact</h2>
-  <div class="contact-content" id="contact-content">
-    <p><a href="mailto:your@email.com">your@email.com</a></p>
-    <p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
-    <p><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></p>
+  <h2 id="page-title">Video Gallery</h2>
+  <div class="video-gallery">
+<iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen></iframe><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><iframe src="https://www.youtube.com/embed/kXYiU_JCYtU" allowfullscreen></iframe>
   </div>
   <script>
     function toggleMenu() {
@@ -112,22 +109,8 @@
     }
     function switchLang(lang) {
       const title = document.getElementById("page-title");
-      const content = document.getElementById("contact-content");
-      if (lang === 'de') {
-        title.innerText = "Kontakt";
-        content.innerHTML = `
-          <p><a href="mailto:your@email.com">your@email.com</a></p>
-          <p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
-          <p><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></p>
-        `;
-      } else {
-        title.innerText = "Contact";
-        content.innerHTML = `
-          <p><a href="mailto:your@email.com">your@email.com</a></p>
-          <p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
-          <p><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></p>
-        `;
-      }
+      if (lang === 'de') title.innerText = "Videogalerie";
+      else title.innerText = "Video Gallery";
     }
   </script>
 </body>
