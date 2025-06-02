@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>About Me</title>
+<style>
+    h2 {
+      text-align: center;
+      margin-top: 100px;
+    }
+    .content {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+<style>
+  body { margin: 0; font-family: sans-serif; }
+  .topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  .lang-toggle {
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .burger {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .fullscreen-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: white;
+    z-index: 999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    gap: 24px;
+  }
+  .fullscreen-menu.active {
+    display: flex;
+  }
+</style>
+<div class="topbar">
+<div class="lang-toggle" onclick="toggleLang(this)">EN</div>
+<div class="burger" onclick="toggleMenu()">☰</div>
+</div>
+<div class="fullscreen-menu" id="fullscreenMenu">
+<a href="about.html" onclick="toggleMenu()">About</a>
+<a href="gallery.html" onclick="toggleMenu()">Photos</a>
+<a href="video.html" onclick="toggleMenu()">Videos</a>
+<a href="contact.html" onclick="toggleMenu()">Contacts</a>
+</div>
+<script>
+  function toggleLang(el) {
+    el.innerText = el.innerText === 'EN' ? 'DE' : 'EN';
+  }
+  function toggleMenu() {
+    document.getElementById('fullscreenMenu').classList.toggle('active');
+  }
+</script>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.burger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px 0;
+}
+.menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1001;
+}
+.menu a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: black;
+}
+</style>
+<div class="burger" onclick="toggleMenu()">
+<div></div><div></div><div></div>
+</div>
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<a href="gallery.html">Photos</a>
+<a href="video.html">Videos</a>
+<a href="about.html">About Me</a>
+<a href="contact.html">Contact</a>
+</div>
+<div></div>
+<div></div>
+
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<a href="gallery.html">Photos</a>
+<a href="video.html">Videos</a>
+<a href="about.html">About Me</a>
+</div>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+<h2>About Me</h2>
+<div class="content">
+<p style="text-align:center;">You can place your personal description here. This section is About Me.</p>
+</div>
+</body>
+</html>

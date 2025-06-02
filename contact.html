@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Contact</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .lang-switch {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+    .lang-switch a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .burger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .burger div {
+      width: 30px;
+      height: 4px;
+      background-color: black;
+      margin: 5px 0;
+    }
+    .menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      z-index: 1001;
+    }
+    .menu a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 32px;
+    }
+    .contact-content {
+      max-width: 600px;
+      margin: 50px auto;
+      text-align: center;
+      font-size: 20px;
+    }
+    .contact-content p {
+      margin: 20px 0;
+    }
+    .contact-content a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<style>
+  body { margin: 0; font-family: sans-serif; }
+  .topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  .lang-toggle {
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .burger {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .fullscreen-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: white;
+    z-index: 999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    gap: 24px;
+  }
+  .fullscreen-menu.active {
+    display: flex;
+  }
+</style>
+<div class="topbar">
+<div class="lang-toggle" onclick="toggleLang(this)">EN</div>
+<div class="burger" onclick="toggleMenu()">☰</div>
+</div>
+<div class="fullscreen-menu" id="fullscreenMenu">
+<a href="about.html" onclick="toggleMenu()">About</a>
+<a href="gallery.html" onclick="toggleMenu()">Photos</a>
+<a href="video.html" onclick="toggleMenu()">Videos</a>
+<a href="contact.html" onclick="toggleMenu()">Contacts</a>
+</div>
+<script>
+  function toggleLang(el) {
+    el.innerText = el.innerText === 'EN' ? 'DE' : 'EN';
+  }
+  function toggleMenu() {
+    document.getElementById('fullscreenMenu').classList.toggle('active');
+  }
+</script>
+
+<div class="lang-switch">
+<a href="#" onclick="switchLang('en')">EN</a>
+<a href="#" onclick="switchLang('de')">DE</a>
+</div>
+<div class="burger" onclick="toggleMenu()">
+<div></div><div></div><div></div>
+</div>
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<a href="gallery.html">Photos</a>
+<a href="video.html">Videos</a>
+<a href="about.html">About Me</a>
+<a href="contact.html">Contact</a>
+</div>
+<div></div><div></div>
+
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<a href="gallery.html">Photos</a>
+<a href="video.html">Videos</a>
+<a href="about.html">About Me</a>
+<a href="contact.html">Contact</a>
+</div>
+<h2 id="page-title">Contact</h2>
+<div class="contact-content" id="contact-content">
+<p><a href="mailto:your@email.com">your@email.com</a></p>
+<p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
+<p><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></p>
+</div>
+<script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+    function switchLang(lang) {
+      const title = document.getElementById("page-title");
+      const content = document.getElementById("contact-content");
+      if (lang === 'de') {
+        title.innerText = "Kontakt";
+        content.innerHTML = `
+          <p><a href="mailto:your@email.com">your@email.com</a></p>
+          <p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
+          <p><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></p>
+        `;
+      } else {
+        title.innerText = "Contact";
+        content.innerHTML = `
+          <p><a href="mailto:your@email.com">your@email.com</a></p>
+          <p><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></p>
+          <p><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

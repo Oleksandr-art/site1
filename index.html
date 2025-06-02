@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Oleksandr Kuskov – Portfolio</title>
+<style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #fff;
+      color: #111;
+      text-align: center;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+    nav button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    .slider img, .slider iframe {
+      max-width: 800px;
+      width: 100%;
+      margin: auto;
+      display: none;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .slider img.active, .slider iframe.active {
+      display: block;
+    }
+    .controls button {
+      background: none;
+      border: none;
+      color: black;
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0 0.5rem;
+      padding: 0.4rem 1rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .info {
+      max-width: 600px;
+      margin: auto;
+    }
+    .contacts a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #111;
+    }
+    .lang-de {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<style>
+  body { margin: 0; font-family: sans-serif; }
+  .topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  .lang-toggle {
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .burger {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .fullscreen-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: white;
+    z-index: 999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    gap: 24px;
+  }
+  .fullscreen-menu.active {
+    display: flex;
+  }
+</style>
+<div class="topbar">
+<div class="lang-toggle" onclick="toggleLang(this)">EN</div>
+<div class="burger" onclick="toggleMenu()">☰</div>
+</div>
+<div class="fullscreen-menu" id="fullscreenMenu">
+<a href="about.html" onclick="toggleMenu()">About</a>
+<a href="gallery.html" onclick="toggleMenu()">Photos</a>
+<a href="video.html" onclick="toggleMenu()">Videos</a>
+<a href="contact.html" onclick="toggleMenu()">Contacts</a>
+</div>
+<script>
+  function toggleLang(el) {
+    el.innerText = el.innerText === 'EN' ? 'DE' : 'EN';
+  }
+  function toggleMenu() {
+    document.getElementById('fullscreenMenu').classList.toggle('active');
+  }
+</script>
+
+<style>
+.burger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px 0;
+}
+.menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1001;
+}
+.menu a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: black;
+}
+</style>
+<div class="burger" onclick="toggleMenu()">
+<div></div><div></div><div></div>
+</div>
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<a href="gallery.html">Photos</a>
+<a href="video.html">Videos</a>
+<a href="about.html">About Me</a>
+<a href="contact.html">Contact</a>
+</div>
+<div></div>
+<div></div>
+
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<a href="gallery.html">Photos</a>
+<a href="video.html">Videos</a>
+<a href="about.html">About Me</a>
+</div>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+<nav>
+<button onclick="switchLang('en')">EN</button>
+<button onclick="switchLang('de')">DE</button>
+</nav>
+<section class="info">
+<h1 class="lang-en">Oleksandr Kuskov – Icarian Games Performer</h1>
+<h1 class="lang-de">Oleksandr Kuskov – Ikarier-Akrobat</h1>
+<p class="lang-en">I specialize in high-level Icarian Games acts with years of international experience. My work combines precision, strength, and elegance.</p>
+<p class="lang-de">Ich spezialisiere mich auf Ikarier-Akrobatik mit internationaler Erfahrung. Meine Arbeit verbindet Präzision, Kraft und Eleganz.</p>
+</section>
+<section onclick="document.getElementById('photo-gallery').scrollIntoView({behavior:'smooth'})">
+<h2 class="lang-en">Photos</h2>
+<h2 class="lang-de">Fotos</h2>
+<div class="slider" id="photo-slider">
+<img alt="Photo 1" class="active" src="images/photo1.jpg"/>
+<img alt="Photo 2" src="images/photo2.jpg"/>
+<img alt="Photo 3" src="images/photo3.jpg"/>
+<img alt="Photo 4" src="images/photo4.jpg"/>
+<img alt="Photo 5" src="images/photo5.jpg"/>
+</div>
+<div class="controls">
+<button onclick="changePhoto(-1)">←</button>
+<button onclick="changePhoto(1)">→</button>
+</div>
+</section>
+<section onclick="document.getElementById('video-gallery').scrollIntoView({behavior:'smooth'})">
+<h2 class="lang-en">Videos</h2>
+<h2 class="lang-de">Videos</h2>
+<div class="slider" id="video-slider">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/o1shHtXhbnw?si=-FFN2sBW1pNWVMAm" title="YouTube video player" width="560"></iframe>
+<iframe allowfullscreen="" class="active" frameborder="0" height="315" src="https://www.youtube.com/embed/ZbZSe6N_BXs" width="560"></iframe>
+</div>
+<div class="controls">
+<button onclick="changeVideo(-1)">←</button>
+<button onclick="changeVideo(1)">→</button>
+</div>
+</section>
+<script>
+    function switchLang(lang) {
+      const en = document.querySelectorAll('.lang-en');
+      const de = document.querySelectorAll('.lang-de');
+      en.forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+      de.forEach(el => el.style.display = lang === 'de' ? 'block' : 'none');
+    }
+    window.onload = () => switchLang('en');
+
+    let photoIndex = 0;
+    let videoIndex = 0;
+    const photos = document.querySelectorAll('#photo-slider img');
+    const videos = document.querySelectorAll('#video-slider iframe');
+
+    function changePhoto(n) {
+      photos[photoIndex].classList.remove('active');
+      photoIndex = (photoIndex + n + photos.length) % photos.length;
+      photos[photoIndex].classList.add('active');
+    }
+
+    function changeVideo(n) {
+      videos[videoIndex].classList.remove('active');
+      videoIndex = (videoIndex + n + videos.length) % videos.length;
+      videos[videoIndex].classList.add('active');
+    }
+  
+let touchStartX = 0;
+let touchEndX = 0;
+
+function handleSwipe(sliderType) {
+  const threshold = 50;
+  const changeFn = sliderType === 'photo' ? changePhoto : changeVideo;
+  const container = document.getElementById(sliderType + '-slider');
+
+  container.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  container.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const deltaX = touchEndX - touchStartX;
+    if (Math.abs(deltaX) > threshold) {
+      changeFn(deltaX < 0 ? 1 : -1);
+    }
+  });
+}
+
+handleSwipe('photo');
+handleSwipe('video');
+</script>
+<footer class="contacts" style="text-align: center; margin-top: 2rem;">
+<a href="mailto:oleksandr@example.com" style="margin: 0 15px;">Email</a>
+<a href="https://www.instagram.com/yourusername" style="margin: 0 15px;">Instagram</a>
+<a href="https://wa.me/YOUR_PHONE_NUMBER" style="margin: 0 15px;">WhatsApp</a>
+</footer>
+</body>
+</html>
