@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Video Gallery</title>
-  <style>
+<meta charset="utf-8"/>
+<title>Video Gallery</title>
+<style>
     
     body {
       font-family: Arial, sans-serif;
@@ -75,34 +76,69 @@
   </style>
 </head>
 <body>
-  <div class="lang-switch">
-    <a href="#" onclick="switchLang('en')">EN</a>
-    <a href="#" onclick="switchLang('de')">DE</a>
-  </div>
-  
+<header id="main-header" style="position: fixed; top: 0; left: 0; right: 0; height: 60px; background: white; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+<div id="language-switcher">
+<select onchange="changeLanguage(this.value)" style="padding: 5px; font-size: 16px;">
+<option value="en">EN</option>
+<option value="de">DE</option>
+<option value="ru">RU</option>
+</select>
+</div>
+<div id="burger" onclick="toggleMenu()" style="cursor: pointer; width: 30px;">
+<div style="height: 3px; background: black; margin: 6px 0;"></div>
+<div style="height: 3px; background: black; margin: 6px 0;"></div>
+<div style="height: 3px; background: black; margin: 6px 0;"></div>
+</div>
+</header>
+<div id="fullscreen-menu" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: white; z-index: 999; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+<a href="index.html" style="margin: 20px; font-size: 24px;">Home</a>
+<a href="gallery.html" style="margin: 20px; font-size: 24px;">Gallery</a>
+<a href="video.html" style="margin: 20px; font-size: 24px;">Video</a>
+<a href="about.html" style="margin: 20px; font-size: 24px;">About</a>
+<a href="contact.html" style="margin: 20px; font-size: 24px;">Contact</a>
+</div>
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('fullscreen-menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  menu.style.display === 'flex' && (menu.style.flexDirection = 'column');
+}
+
+function changeLanguage(lang) {
+  alert('Switch to: ' + lang);  // Replace with real language logic if needed
+}
+</script>
+<style>
+body { padding-top: 60px; }
+</style>
+
+<div class="lang-switch">
+<a href="#" onclick="switchLang('en')">EN</a>
+<a href="#" onclick="switchLang('de')">DE</a>
+</div>
 <div class="burger" onclick="toggleMenu()">
-  <div></div><div></div><div></div>
+<div></div><div></div><div></div>
 </div>
 <div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Photos</a>
-  <a href="video.html">Videos</a>
-  <a href="about.html">About Me</a>
-  <a href="contact.html">Contact</a>
+<a href="index.html">Home</a>
+<a href="gallery.html">Photos</a>
+<a href="video.html">Videos</a>
+<a href="about.html">About Me</a>
+<a href="contact.html">Contact</a>
 </div>
 <div></div><div></div>
-  </div>
-  <div class="menu" id="menu">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Photos</a>
-    <a href="video.html">Videos</a>
-    <a href="about.html">About Me</a>
-  </div>
-  <h2 id="page-title">Video Gallery</h2>
-  <div class="video-gallery">
-<iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen></iframe><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><iframe src="https://www.youtube.com/embed/kXYiU_JCYtU" allowfullscreen></iframe>
-  </div>
-  <script>
+
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<a href="gallery.html">Photos</a>
+<a href="video.html">Videos</a>
+<a href="about.html">About Me</a>
+</div>
+<h2 id="page-title">Video Gallery</h2>
+<div class="video-gallery">
+<iframe allowfullscreen="" src="https://www.youtube.com/embed/ZbZSe6N_BXs"></iframe><iframe allowfullscreen="" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe><iframe allowfullscreen="" src="https://www.youtube.com/embed/kXYiU_JCYtU"></iframe>
+</div>
+<script>
     function toggleMenu() {
       const menu = document.getElementById('menu');
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
