@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <style>
@@ -77,10 +78,9 @@
         margin-top: 80px;
     }
 </style>
-
-  <meta charset="UTF-8" />
-  <title>Video Gallery</title>
-  <style>
+<meta charset="utf-8"/>
+<title>Video Gallery</title>
+<style>
     
     body {
       font-family: Arial, sans-serif;
@@ -153,25 +153,23 @@
 </head>
 <body>
 <div class="fixed-header">
-    <div class="header-content">
-        <div class="language-switcher">
-            <a href="#">EN</a> | <a href="#">DE</a>
-        </div>
-        <div class="burger-menu" id="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
+<div class="header-content">
+<div class="language-switcher">
+<a href="#">EN</a> | <a href="#">DE</a>
 </div>
-
-
+<div class="burger-menu" id="burger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
 <div class="fullscreen-menu" id="fullscreenMenu">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="video.html">Video</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+<a href="index.html">Home</a>
+<a href="gallery.html">Gallery</a>
+<a href="video.html">Video</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -183,34 +181,30 @@
         });
     });
 </script>
-
-  <div class="lang-switch">
-    <a href="#" onclick="switchLang('en')">EN</a>
-    <a href="#" onclick="switchLang('de')">DE</a>
-  </div>
-  
-<div></div><div></div>
+<div class="lang-switch">
+<a href="#" onclick="switchLang('en')">EN</a>
+<a href="#" onclick="switchLang('de')">DE</a>
 </div>
+<div></div><div></div>
 <div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Photos</a>
-  <a href="video.html">Videos</a>
-  <a href="about.html">About Me</a>
-  <a href="contact.html">Contact</a>
+<a href="index.html">Home</a>
+<a href="gallery.html">Photos</a>
+<a href="video.html">Videos</a>
+<a href="about.html">About Me</a>
+<a href="contact.html">Contact</a>
 </div>
 <div></div><div></div>
-  </div>
-  <div class="menu" id="menu">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Photos</a>
-    <a href="video.html">Videos</a>
-    <a href="about.html">About Me</a>
-  </div>
-  <h2 id="page-title">Video Gallery</h2>
-  <div class="video-gallery">
-<iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen></iframe><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><iframe src="https://www.youtube.com/embed/kXYiU_JCYtU" allowfullscreen></iframe>
-  </div>
-  <script>
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<a href="gallery.html">Photos</a>
+<a href="video.html">Videos</a>
+<a href="about.html">About Me</a>
+</div>
+<h2 id="page-title">Video Gallery</h2>
+<div class="video-gallery">
+<iframe allowfullscreen="" src="https://www.youtube.com/embed/ZbZSe6N_BXs" style="width: 60%;" width="60%"></iframe><iframe allowfullscreen="" src="https://www.youtube.com/embed/dQw4w9WgXcQ" style="width: 60%;" width="60%"></iframe><iframe allowfullscreen="" src="https://www.youtube.com/embed/kXYiU_JCYtU" style="width: 60%;" width="60%"></iframe>
+</div>
+<script>
     function toggleMenu() {
       const menu = document.getElementById('menu');
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
