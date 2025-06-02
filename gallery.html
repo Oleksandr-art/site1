@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
     .fixed-header {
         position: fixed;
         top: 0;
@@ -47,6 +54,9 @@
     }
 
     .fullscreen-menu {
+  max-width: 100vw;
+  overflow-x: hidden;
+  padding: 0 10px;
         position: fixed;
         top: 0;
         left: 0;
@@ -78,9 +88,17 @@
         margin-top: 80px;
     }
 </style>
-<meta charset="utf-8"/>
-<title>Photo Gallery</title>
-<style>
+
+  <meta charset="UTF-8" />
+  <title>Photo Gallery</title>
+  <style>
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
     
     body {
       font-family: Arial, sans-serif;
@@ -174,23 +192,25 @@
 </head>
 <body>
 <div class="fixed-header">
-<div class="header-content">
-<div class="language-switcher">
-<a href="#">EN</a> | <a href="#">DE</a>
+    <div class="header-content">
+        <div class="language-switcher">
+            <a href="#">EN</a> | <a href="#">DE</a>
+        </div>
+        <div class="burger-menu" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 </div>
-<div class="burger-menu" id="burger">
-<span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-</div>
+
+
 <div class="fullscreen-menu" id="fullscreenMenu">
-<a href="index.html">Home</a>
-<a href="gallery.html">Gallery</a>
-<a href="video.html">Video</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="video.html">Video</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -202,35 +222,37 @@
         });
     });
 </script>
-<div class="lang-switch">
-<a href="#" onclick="switchLang('en')">EN</a>
-<a href="#" onclick="switchLang('de')">DE</a>
+
+  <div class="lang-switch">
+    <a href="#" onclick="switchLang('en')">EN</a>
+    <a href="#" onclick="switchLang('de')">DE</a>
+  </div>
+  
+<div></div><div></div>
+</div>
+<div class="menu" id="menu">
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Photos</a>
+  <a href="video.html">Videos</a>
+  <a href="about.html">About Me</a>
+  <a href="contact.html">Contact</a>
 </div>
 <div></div><div></div>
-
-<div class="menu" id="menu">
-<a href="index.html">Home</a>
-<a href="gallery.html">Photos</a>
-<a href="video.html">Videos</a>
-<a href="about.html">About Me</a>
-<a href="contact.html">Contact</a>
-</div>
-<div></div><div></div>
-
-<div class="menu" id="menu">
-<a href="index.html">Home</a>
-<a href="gallery.html">Photos</a>
-<a href="video.html">Videos</a>
-<a href="about.html">About Me</a>
-</div>
-<h2 id="page-title">Photo Gallery</h2>
-<div class="gallery">
-<img onclick="openLightbox(1)" src="images/photo1.jpg"/><img onclick="openLightbox(2)" src="images/photo2.jpg"/><img onclick="openLightbox(3)" src="images/photo3.jpg"/><img onclick="openLightbox(4)" src="images/photo4.jpg"/><img onclick="openLightbox(5)" src="images/photo5.jpg"/><img onclick="openLightbox(6)" src="images/photo6.jpg"/><img onclick="openLightbox(7)" src="images/photo7.jpg"/><img onclick="openLightbox(8)" src="images/photo8.jpg"/><img onclick="openLightbox(9)" src="images/photo9.jpg"/><img onclick="openLightbox(10)" src="images/photo10.jpg"/>
-</div>
-<div id="lightbox" onclick="this.style.display='none'">
-<img id="lightbox-img" src=""/>
-</div>
-<script>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Photos</a>
+    <a href="video.html">Videos</a>
+    <a href="about.html">About Me</a>
+  </div>
+  <h2 id="page-title">Photo Gallery</h2>
+  <div class="gallery">
+<img src="images/photo1.jpg" onclick="openLightbox(1)" /><img src="images/photo2.jpg" onclick="openLightbox(2)" /><img src="images/photo3.jpg" onclick="openLightbox(3)" /><img src="images/photo4.jpg" onclick="openLightbox(4)" /><img src="images/photo5.jpg" onclick="openLightbox(5)" /><img src="images/photo6.jpg" onclick="openLightbox(6)" /><img src="images/photo7.jpg" onclick="openLightbox(7)" /><img src="images/photo8.jpg" onclick="openLightbox(8)" /><img src="images/photo9.jpg" onclick="openLightbox(9)" /><img src="images/photo10.jpg" onclick="openLightbox(10)" />
+  </div>
+  <div id="lightbox" onclick="this.style.display='none'">
+    <img src="" id="lightbox-img" />
+  </div>
+  <script>
     const totalImages = 10;
     let currentImgIndex = 1;
     const lightbox = document.getElementById('lightbox');
