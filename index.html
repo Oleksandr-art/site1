@@ -2,36 +2,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Oleksandr Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="scripts/menu.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="logo">Oleksandr</div>
-        <div class="language-switch">
-            <button onclick="switchLanguage('en')">EN</button>
-            <button onclick="switchLanguage('de')">DE</button>
+    <header class="navbar">
+        <div class="lang-toggle">
+            <span>EN</span> | <span>DE</span>
         </div>
-        <div class="burger" onclick="toggleMenu()">☰</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </header>
-    <div id="fullscreen-menu" class="fullscreen-menu">
-        <div class="close-btn" onclick="toggleMenu()">✕</div>
+    <nav id="menu" class="full-screen-menu">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Me</a></li>
-            <li><a href="photos.html">Photos</a></li>
-            <li><a href="videos.html">Videos</a></li>
+            <li><a href="photos.html">Photo Gallery</a></li>
+            <li><a href="videos.html">Video Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-    </div>
-    <script>
-        function toggleMenu() {
-            document.getElementById("fullscreen-menu").classList.toggle("open");
-        }
-        function switchLanguage(lang) {
-            alert("Switching to " + lang);
-        }
-    </script>
+    </nav>
+    <main>
+        <section class="hero">
+            <h1>Welcome to Oleksandr's Portfolio</h1>
+        </section>
+        <section class="gallery-preview">
+            <h2>Photos</h2>
+            <p>Preview of photo gallery...</p>
+        </section>
+        <section class="gallery-preview">
+            <h2>Videos</h2>
+            <p>Preview of video gallery...</p>
+        </section>
+    </main>
 </body>
 </html>
