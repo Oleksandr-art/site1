@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
 *, *::before, *::after {
   box-sizing: border-box;
@@ -88,10 +89,9 @@ body {
         margin-top: 80px;
     }
 </style>
-
-  <meta charset="UTF-8" />
-  <title>Photo Gallery</title>
-  <style>
+<meta charset="utf-8">
+<title>Photo Gallery</title>
+<style>
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -189,28 +189,26 @@ body {
       max-height: 90%;
     }
   </style>
-</head>
+</meta></head>
 <body>
 <div class="fixed-header">
-    <div class="header-content">
-        <div class="language-switcher">
-            <a href="#">EN</a> | <a href="#">DE</a>
-        </div>
-        <div class="burger-menu" id="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
+<div class="header-content">
+<div class="language-switcher">
+<a href="#"><span class="lang-en">EN</span><span class="lang-de" style="display:none;">[DE] EN</span></a> | <a href="#"><span class="lang-en">DE</span><span class="lang-de" style="display:none;">[DE] DE</span></a>
 </div>
-
-
+<div class="burger-menu" id="burger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
 <div class="fullscreen-menu" id="fullscreenMenu">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="video.html">Video</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-de" style="display:none;">[DE] Gallery</span></a>
+<a href="video.html"><span class="lang-en">Video</span><span class="lang-de" style="display:none;">[DE] Video</span></a>
+<a href="about.html"><span class="lang-en">About</span><span class="lang-de" style="display:none;">[DE] About</span></a>
+<a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de" style="display:none;">[DE] Contact</span></a>
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -222,37 +220,35 @@ body {
         });
     });
 </script>
+<div class="lang-switch">
+<a href="#" onclick="switchLang('en')"><span class="lang-en">EN</span><span class="lang-de" style="display:none;">[DE] EN</span></a>
+<a href="#" onclick="switchLang('de')"><span class="lang-en">DE</span><span class="lang-de" style="display:none;">[DE] DE</span></a>
+</div>
+<div></div><div></div>
 
-  <div class="lang-switch">
-    <a href="#" onclick="switchLang('en')">EN</a>
-    <a href="#" onclick="switchLang('de')">DE</a>
-  </div>
-  
-<div></div><div></div>
-</div>
 <div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Photos</a>
-  <a href="video.html">Videos</a>
-  <a href="about.html">About Me</a>
-  <a href="contact.html">Contact</a>
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Photos</span><span class="lang-de" style="display:none;">[DE] Photos</span></a>
+<a href="video.html"><span class="lang-en">Videos</span><span class="lang-de" style="display:none;">[DE] Videos</span></a>
+<a href="about.html"><span class="lang-en">About Me</span><span class="lang-de" style="display:none;">[DE] About Me</span></a>
+<a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de" style="display:none;">[DE] Contact</span></a>
 </div>
 <div></div><div></div>
-  </div>
-  <div class="menu" id="menu">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Photos</a>
-    <a href="video.html">Videos</a>
-    <a href="about.html">About Me</a>
-  </div>
-  <h2 id="page-title">Photo Gallery</h2>
-  <div class="gallery">
-<img src="images/photo1.jpg" onclick="openLightbox(1)" /><img src="images/photo2.jpg" onclick="openLightbox(2)" /><img src="images/photo3.jpg" onclick="openLightbox(3)" /><img src="images/photo4.jpg" onclick="openLightbox(4)" /><img src="images/photo5.jpg" onclick="openLightbox(5)" /><img src="images/photo6.jpg" onclick="openLightbox(6)" /><img src="images/photo7.jpg" onclick="openLightbox(7)" /><img src="images/photo8.jpg" onclick="openLightbox(8)" /><img src="images/photo9.jpg" onclick="openLightbox(9)" /><img src="images/photo10.jpg" onclick="openLightbox(10)" />
-  </div>
-  <div id="lightbox" onclick="this.style.display='none'">
-    <img src="" id="lightbox-img" />
-  </div>
-  <script>
+
+<div class="menu" id="menu">
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Photos</span><span class="lang-de" style="display:none;">[DE] Photos</span></a>
+<a href="video.html"><span class="lang-en">Videos</span><span class="lang-de" style="display:none;">[DE] Videos</span></a>
+<a href="about.html"><span class="lang-en">About Me</span><span class="lang-de" style="display:none;">[DE] About Me</span></a>
+</div>
+<h2 id="page-title"><span class="lang-en">Photo Gallery</span><span class="lang-de" style="display:none;">[DE] Photo Gallery</span></h2>
+<div class="gallery">
+<img onclick="openLightbox(1)" src="images/photo1.jpg"/><img onclick="openLightbox(2)" src="images/photo2.jpg"/><img onclick="openLightbox(3)" src="images/photo3.jpg"/><img onclick="openLightbox(4)" src="images/photo4.jpg"/><img onclick="openLightbox(5)" src="images/photo5.jpg"/><img onclick="openLightbox(6)" src="images/photo6.jpg"/><img onclick="openLightbox(7)" src="images/photo7.jpg"/><img onclick="openLightbox(8)" src="images/photo8.jpg"/><img onclick="openLightbox(9)" src="images/photo9.jpg"/><img onclick="openLightbox(10)" src="images/photo10.jpg"/>
+</div>
+<div id="lightbox" onclick="this.style.display='none'">
+<img id="lightbox-img" src=""/>
+</div>
+<script>
     const totalImages = 10;
     let currentImgIndex = 1;
     const lightbox = document.getElementById('lightbox');
@@ -307,5 +303,31 @@ body {
       imgTag.src = `images/photo${currentImgIndex}.jpg`;
     }
   </script>
-</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const langLinks = document.querySelectorAll(".lang");
+    const enElements = document.querySelectorAll(".lang-en");
+    const deElements = document.querySelectorAll(".lang-de");
+
+    function switchLanguage(lang) {
+        if (lang === "en") {
+            enElements.forEach(el => el.style.display = "");
+            deElements.forEach(el => el.style.display = "none");
+        } else {
+            enElements.forEach(el => el.style.display = "none");
+            deElements.forEach(el => el.style.display = "");
+        }
+    }
+
+    langLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const lang = this.textContent.trim().toLowerCase();
+            switchLanguage(lang);
+        });
+    });
+
+    switchLanguage("en");
+});
+</script></body>
 </html>

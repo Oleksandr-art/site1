@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <style>
@@ -9,7 +10,6 @@
     margin: 10px;
 }
 </style>
-
 <style>
 *, *::before, *::after {
   box-sizing: border-box;
@@ -96,12 +96,11 @@ body {
         margin-top: 80px;
     }
 </style>
-
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oleksandr Kuskov – Portfolio</title>
-  <style>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Oleksandr Kuskov – Portfolio</title>
+<style>
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -172,25 +171,23 @@ body {
 </head>
 <body>
 <div class="fixed-header">
-    <div class="header-content">
-        <div class="language-switcher">
-            <a href="#">EN</a> | <a href="#">DE</a>
-        </div>
-        <div class="burger-menu" id="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
+<div class="header-content">
+<div class="language-switcher">
+<a href="#"><span class="lang-en">EN</span><span class="lang-de" style="display:none;">[DE] EN</span></a> | <a href="#"><span class="lang-en">DE</span><span class="lang-de" style="display:none;">[DE] DE</span></a>
 </div>
-
-
+<div class="burger-menu" id="burger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
 <div class="fullscreen-menu" id="fullscreenMenu">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="video.html">Video</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-de" style="display:none;">[DE] Gallery</span></a>
+<a href="video.html"><span class="lang-en">Video</span><span class="lang-de" style="display:none;">[DE] Video</span></a>
+<a href="about.html"><span class="lang-en">About</span><span class="lang-de" style="display:none;">[DE] About</span></a>
+<a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de" style="display:none;">[DE] Contact</span></a>
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -202,8 +199,6 @@ body {
         });
     });
 </script>
-
-
 <style>
 *, *::before, *::after {
   box-sizing: border-box;
@@ -242,25 +237,21 @@ body {
   color: black;
 }
 </style>
-
 <div></div><div></div>
-</div>
 <div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Photos</a>
-  <a href="video.html">Videos</a>
-  <a href="about.html">About Me</a>
-  <a href="contact.html">Contact</a>
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Photos</span><span class="lang-de" style="display:none;">[DE] Photos</span></a>
+<a href="video.html"><span class="lang-en">Videos</span><span class="lang-de" style="display:none;">[DE] Videos</span></a>
+<a href="about.html"><span class="lang-en">About Me</span><span class="lang-de" style="display:none;">[DE] About Me</span></a>
+<a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de" style="display:none;">[DE] Contact</span></a>
 </div>
-
-  <div></div>
-  <div></div>
-</div>
+<div></div>
+<div></div>
 <div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Photos</a>
-  <a href="video.html">Videos</a>
-  <a href="about.html">About Me</a>
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Photos</span><span class="lang-de" style="display:none;">[DE] Photos</span></a>
+<a href="video.html"><span class="lang-en">Videos</span><span class="lang-de" style="display:none;">[DE] Videos</span></a>
+<a href="about.html"><span class="lang-en">About Me</span><span class="lang-de" style="display:none;">[DE] About Me</span></a>
 </div>
 <script>
 function toggleMenu() {
@@ -268,53 +259,44 @@ function toggleMenu() {
   menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
 }
 </script>
-
-
-  <nav>
-    <button onclick="switchLang('en')">EN</button>
-    <button onclick="switchLang('de')">DE</button>
-  </nav>
-
-  <section class="info">
-    <h1 class="lang-en" style="margin-top: 2em;">Oleksandr Kuskov – Icarian Games Performer</h1>
-    <h1 class="lang-de">Oleksandr Kuskov – Ikarier-Akrobat</h1>
-
-    <p class="lang-en">I specialize in high-level Icarian Games acts with years of international experience. My work combines precision, strength, and elegance.</p>
-    <p class="lang-de">Ich spezialisiere mich auf Ikarier-Akrobatik mit internationaler Erfahrung. Meine Arbeit verbindet Präzision, Kraft und Eleganz.</p>
-  </section>
-
-  <section onclick="document.getElementById('photo-gallery').scrollIntoView({behavior:'smooth'})">
-    <h2 class="lang-en">Photos</h2>
-    <h2 class="lang-de">Fotos</h2>
-    <div class="slider" id="photo-slider">
-      <img src="images/photo1.jpg" class="active" alt="Photo 1">
-      <img src="images/photo2.jpg" alt="Photo 2">
-      <img src="images/photo3.jpg" alt="Photo 3">
-      <img src="images/photo4.jpg" alt="Photo 4">
-      <img src="images/photo5.jpg" alt="Photo 5">
-    </div>
-    <div class="controls">
-      <button onclick="changePhoto(-1)">←</button>
-      <button onclick="changePhoto(1)">→</button>
-    </div>
-  </section>
-
-  <section onclick="document.getElementById('video-gallery').scrollIntoView({behavior:'smooth'})">
-    <h2 class="lang-en">Videos</h2>
-    <h2 class="lang-de">Videos</h2>
-    <div class="slider" id="video-slider">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/o1shHtXhbnw?si=-FFN2sBW1pNWVMAm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></a>
-      <iframe class="active" src="https://www.youtube.com/embed/ZbZSe6N_BXs" width="560" height="315" frameborder="0" allowfullscreen></iframe></a>
-    </div>
-    <div class="controls">
-      <button onclick="changeVideo(-1)">←</button>
-      <button onclick="changeVideo(1)">→</button>
-    </div>
-  </section>
-
-  
-
-  <script>
+<nav>
+<button onclick="switchLang('en')">EN</button>
+<button onclick="switchLang('de')">DE</button>
+</nav>
+<section class="info">
+<h1 class="lang-en" style="margin-top: 2em;"><span class="lang-en">Oleksandr Kuskov – Icarian Games Performer</span><span class="lang-de" style="display:none;">[DE] Oleksandr Kuskov – Icarian Games Performer</span></h1>
+<h1 class="lang-de"><span class="lang-en">Oleksandr Kuskov – Ikarier-Akrobat</span><span class="lang-de" style="display:none;">[DE] Oleksandr Kuskov – Ikarier-Akrobat</span></h1>
+<p class="lang-en"><span class="lang-en">I specialize in high-level Icarian Games acts with years of international experience. My work combines precision, strength, and elegance.</span><span class="lang-de" style="display:none;">[DE] I specialize in high-level Icarian Games acts with years of international experience. My work combines precision, strength, and elegance.</span></p>
+<p class="lang-de"><span class="lang-en">Ich spezialisiere mich auf Ikarier-Akrobatik mit internationaler Erfahrung. Meine Arbeit verbindet Präzision, Kraft und Eleganz.</span><span class="lang-de" style="display:none;">[DE] Ich spezialisiere mich auf Ikarier-Akrobatik mit internationaler Erfahrung. Meine Arbeit verbindet Präzision, Kraft und Eleganz.</span></p>
+</section>
+<section onclick="document.getElementById('photo-gallery').scrollIntoView({behavior:'smooth'})">
+<h2 class="lang-en"><span class="lang-en">Photos</span><span class="lang-de" style="display:none;">[DE] Photos</span></h2>
+<h2 class="lang-de"><span class="lang-en">Fotos</span><span class="lang-de" style="display:none;">[DE] Fotos</span></h2>
+<div class="slider" id="photo-slider">
+<img alt="Photo 1" class="active" src="images/photo1.jpg"/>
+<img alt="Photo 2" src="images/photo2.jpg"/>
+<img alt="Photo 3" src="images/photo3.jpg"/>
+<img alt="Photo 4" src="images/photo4.jpg"/>
+<img alt="Photo 5" src="images/photo5.jpg"/>
+</div>
+<div class="controls">
+<button onclick="changePhoto(-1)">←</button>
+<button onclick="changePhoto(1)">→</button>
+</div>
+</section>
+<section onclick="document.getElementById('video-gallery').scrollIntoView({behavior:'smooth'})">
+<h2 class="lang-en"><span class="lang-en">Videos</span><span class="lang-de" style="display:none;">[DE] Videos</span></h2>
+<h2 class="lang-de"><span class="lang-en">Videos</span><span class="lang-de" style="display:none;">[DE] Videos</span></h2>
+<div class="slider" id="video-slider">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/o1shHtXhbnw?si=-FFN2sBW1pNWVMAm" title="YouTube video player" width="560"></iframe>
+<iframe allowfullscreen="" class="active" frameborder="0" height="315" src="https://www.youtube.com/embed/ZbZSe6N_BXs" width="560"></iframe>
+<iframe allowfullscreen="" src="https://www.youtube.com/embed/kXYiU_JCYtU"></iframe></div>
+<div class="controls">
+<button onclick="changeVideo(-1)">←</button>
+<button onclick="changeVideo(1)">→</button>
+</div>
+</section>
+<script>
     function switchLang(lang) {
       const en = document.querySelectorAll('.lang-en');
       const de = document.querySelectorAll('.lang-de');
@@ -364,13 +346,36 @@ function handleSwipe(sliderType) {
 handleSwipe('photo');
 handleSwipe('video');
 </script>
-
-
 <footer class="contacts" style="text-align: center; margin-top: 2rem;">
-  <div class="footer-links"><a href="mailto:oleksandr@example.com" style="margin: 0 15px;">Email</a>
-  <a href="https://www.instagram.com/yourusername" style="margin: 0 15px;">Instagram</a>
-  <a href="https://wa.me/YOUR_PHONE_NUMBER" style="margin: 0 15px;">WhatsApp</a>
-</footer>
+<div class="footer-links"><a href="mailto:oleksandr@example.com" style="margin: 0 15px;"><span class="lang-en">Email</span><span class="lang-de" style="display:none;">[DE] Email</span></a>
+<a href="https://www.instagram.com/yourusername" style="margin: 0 15px;"><span class="lang-en">Instagram</span><span class="lang-de" style="display:none;">[DE] Instagram</span></a>
+<a href="https://wa.me/YOUR_PHONE_NUMBER" style="margin: 0 15px;"><span class="lang-en">WhatsApp</span><span class="lang-de" style="display:none;">[DE] WhatsApp</span></a>
+</div></footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const langLinks = document.querySelectorAll(".lang");
+    const enElements = document.querySelectorAll(".lang-en");
+    const deElements = document.querySelectorAll(".lang-de");
 
-</div></body>
+    function switchLanguage(lang) {
+        if (lang === "en") {
+            enElements.forEach(el => el.style.display = "");
+            deElements.forEach(el => el.style.display = "none");
+        } else {
+            enElements.forEach(el => el.style.display = "none");
+            deElements.forEach(el => el.style.display = "");
+        }
+    }
+
+    langLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const lang = this.textContent.trim().toLowerCase();
+            switchLanguage(lang);
+        });
+    });
+
+    switchLanguage("en");
+});
+</script></body>
 </html>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
 *, *::before, *::after {
   box-sizing: border-box;
@@ -88,10 +89,9 @@ body {
         margin-top: 80px;
     }
 </style>
-
-  <meta charset="UTF-8" />
-  <title>Video Gallery</title>
-  <style>
+<meta charset="utf-8">
+<title>Video Gallery</title>
+<style>
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -168,28 +168,26 @@ body {
       border: none;
     }
   </style>
-</head>
+</meta></head>
 <body>
 <div class="fixed-header">
-    <div class="header-content">
-        <div class="language-switcher">
-            <a href="#">EN</a> | <a href="#">DE</a>
-        </div>
-        <div class="burger-menu" id="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
+<div class="header-content">
+<div class="language-switcher">
+<a href="#"><span class="lang-en">EN</span><span class="lang-de" style="display:none;">[DE] EN</span></a> | <a href="#"><span class="lang-en">DE</span><span class="lang-de" style="display:none;">[DE] DE</span></a>
 </div>
-
-
+<div class="burger-menu" id="burger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
 <div class="fullscreen-menu" id="fullscreenMenu">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="video.html">Video</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-de" style="display:none;">[DE] Gallery</span></a>
+<a href="video.html"><span class="lang-en">Video</span><span class="lang-de" style="display:none;">[DE] Video</span></a>
+<a href="about.html"><span class="lang-en">About</span><span class="lang-de" style="display:none;">[DE] About</span></a>
+<a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de" style="display:none;">[DE] Contact</span></a>
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -201,34 +199,32 @@ body {
         });
     });
 </script>
+<div class="lang-switch">
+<a href="#" onclick="switchLang('en')"><span class="lang-en">EN</span><span class="lang-de" style="display:none;">[DE] EN</span></a>
+<a href="#" onclick="switchLang('de')"><span class="lang-en">DE</span><span class="lang-de" style="display:none;">[DE] DE</span></a>
+</div>
+<div></div><div></div>
 
-  <div class="lang-switch">
-    <a href="#" onclick="switchLang('en')">EN</a>
-    <a href="#" onclick="switchLang('de')">DE</a>
-  </div>
-  
-<div></div><div></div>
-</div>
 <div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Photos</a>
-  <a href="video.html">Videos</a>
-  <a href="about.html">About Me</a>
-  <a href="contact.html">Contact</a>
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Photos</span><span class="lang-de" style="display:none;">[DE] Photos</span></a>
+<a href="video.html"><span class="lang-en">Videos</span><span class="lang-de" style="display:none;">[DE] Videos</span></a>
+<a href="about.html"><span class="lang-en">About Me</span><span class="lang-de" style="display:none;">[DE] About Me</span></a>
+<a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de" style="display:none;">[DE] Contact</span></a>
 </div>
 <div></div><div></div>
-  </div>
-  <div class="menu" id="menu">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Photos</a>
-    <a href="video.html">Videos</a>
-    <a href="about.html">About Me</a>
-  </div>
-  <h2 id="page-title">Video Gallery</h2>
-  <div class="video-gallery">
-<iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen></iframe><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><iframe src="https://www.youtube.com/embed/kXYiU_JCYtU" allowfullscreen></iframe>
-  </div>
-  <script>
+
+<div class="menu" id="menu">
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Photos</span><span class="lang-de" style="display:none;">[DE] Photos</span></a>
+<a href="video.html"><span class="lang-en">Videos</span><span class="lang-de" style="display:none;">[DE] Videos</span></a>
+<a href="about.html"><span class="lang-en">About Me</span><span class="lang-de" style="display:none;">[DE] About Me</span></a>
+</div>
+<h2 id="page-title"><span class="lang-en">Video Gallery</span><span class="lang-de" style="display:none;">[DE] Video Gallery</span></h2>
+<div class="video-gallery">
+<iframe allowfullscreen="" src="https://www.youtube.com/embed/ZbZSe6N_BXs"></iframe><iframe allowfullscreen="" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe><iframe allowfullscreen="" src="https://www.youtube.com/embed/kXYiU_JCYtU"></iframe>
+</div>
+<script>
     function toggleMenu() {
       const menu = document.getElementById('menu');
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
@@ -239,5 +235,31 @@ body {
       else title.innerText = "Video Gallery";
     }
   </script>
-</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const langLinks = document.querySelectorAll(".lang");
+    const enElements = document.querySelectorAll(".lang-en");
+    const deElements = document.querySelectorAll(".lang-de");
+
+    function switchLanguage(lang) {
+        if (lang === "en") {
+            enElements.forEach(el => el.style.display = "");
+            deElements.forEach(el => el.style.display = "none");
+        } else {
+            enElements.forEach(el => el.style.display = "none");
+            deElements.forEach(el => el.style.display = "");
+        }
+    }
+
+    langLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const lang = this.textContent.trim().toLowerCase();
+            switchLanguage(lang);
+        });
+    });
+
+    switchLanguage("en");
+});
+</script></body>
 </html>

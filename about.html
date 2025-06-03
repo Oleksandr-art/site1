@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
 *, *::before, *::after {
   box-sizing: border-box;
@@ -88,10 +89,9 @@ body {
         margin-top: 80px;
     }
 </style>
-
-  <meta charset="UTF-8" />
-  <title>About Me</title>
-  <style>
+<meta charset="utf-8">
+<title>About Me</title>
+<style>
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -107,28 +107,26 @@ body {
       padding: 20px;
     }
   </style>
-</head>
+</meta></head>
 <body>
 <div class="fixed-header">
-    <div class="header-content">
-        <div class="language-switcher">
-            <a href="#">EN</a> | <a href="#">DE</a>
-        </div>
-        <div class="burger-menu" id="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
+<div class="header-content">
+<div class="language-switcher">
+<a href="#"><span class="lang-en">EN</span><span class="lang-de" style="display:none;">[DE] EN</span></a> | <a href="#"><span class="lang-en">DE</span><span class="lang-de" style="display:none;">[DE] DE</span></a>
 </div>
-
-
+<div class="burger-menu" id="burger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
 <div class="fullscreen-menu" id="fullscreenMenu">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="video.html">Video</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-de" style="display:none;">[DE] Gallery</span></a>
+<a href="video.html"><span class="lang-en">Video</span><span class="lang-de" style="display:none;">[DE] Video</span></a>
+<a href="about.html"><span class="lang-en">About</span><span class="lang-de" style="display:none;">[DE] About</span></a>
+<a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de" style="display:none;">[DE] Contact</span></a>
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -140,8 +138,6 @@ body {
         });
     });
 </script>
-
-  
 <style>
 *, *::before, *::after {
   box-sizing: border-box;
@@ -184,25 +180,23 @@ body {
   color: black;
 }
 </style>
-
 <div></div><div></div>
-</div>
-<div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Photos</a>
-  <a href="video.html">Videos</a>
-  <a href="about.html">About Me</a>
-  <a href="contact.html">Contact</a>
-</div>
 
-  <div></div>
-  <div></div>
-</div>
 <div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Photos</a>
-  <a href="video.html">Videos</a>
-  <a href="about.html">About Me</a>
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Photos</span><span class="lang-de" style="display:none;">[DE] Photos</span></a>
+<a href="video.html"><span class="lang-en">Videos</span><span class="lang-de" style="display:none;">[DE] Videos</span></a>
+<a href="about.html"><span class="lang-en">About Me</span><span class="lang-de" style="display:none;">[DE] About Me</span></a>
+<a href="contact.html"><span class="lang-en">Contact</span><span class="lang-de" style="display:none;">[DE] Contact</span></a>
+</div>
+<div></div>
+<div></div>
+
+<div class="menu" id="menu">
+<a href="index.html"><span class="lang-en">Home</span><span class="lang-de" style="display:none;">[DE] Home</span></a>
+<a href="gallery.html"><span class="lang-en">Photos</span><span class="lang-de" style="display:none;">[DE] Photos</span></a>
+<a href="video.html"><span class="lang-en">Videos</span><span class="lang-de" style="display:none;">[DE] Videos</span></a>
+<a href="about.html"><span class="lang-en">About Me</span><span class="lang-de" style="display:none;">[DE] About Me</span></a>
 </div>
 <script>
 function toggleMenu() {
@@ -210,10 +204,35 @@ function toggleMenu() {
   menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
 }
 </script>
+<h2><span class="lang-en">About Me</span><span class="lang-de" style="display:none;">[DE] About Me</span></h2>
+<div class="content">
+<p style="text-align:center;"><span class="lang-en">You can place your personal description here. This section is About Me.</span><span class="lang-de" style="display:none;">[DE] You can place your personal description here. This section is About Me.</span></p>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const langLinks = document.querySelectorAll(".lang");
+    const enElements = document.querySelectorAll(".lang-en");
+    const deElements = document.querySelectorAll(".lang-de");
 
-  <h2>About Me</h2>
-  <div class="content">
-    <p style='text-align:center;'>You can place your personal description here. This section is About Me.</p>
-  </div>
-</body>
+    function switchLanguage(lang) {
+        if (lang === "en") {
+            enElements.forEach(el => el.style.display = "");
+            deElements.forEach(el => el.style.display = "none");
+        } else {
+            enElements.forEach(el => el.style.display = "none");
+            deElements.forEach(el => el.style.display = "");
+        }
+    }
+
+    langLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const lang = this.textContent.trim().toLowerCase();
+            switchLanguage(lang);
+        });
+    });
+
+    switchLanguage("en");
+});
+</script></body>
 </html>
